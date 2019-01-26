@@ -11,16 +11,26 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private GameObject playerPrefab;
 
+    private int timesCrossedStreet = 0;
 
 	// Use this for initialization
 	void Start () 
     {
         SceneManager.LoadScene(streetSceneName, LoadSceneMode.Additive);
 	}
-	
-	// Update is called once per frame
-	void Update () 
+
+    void Restart()
     {
-		
-	}
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void IncrementScore()
+    {
+        timesCrossedStreet++;
+    }
+
+    public int GetScore()
+    {
+        return timesCrossedStreet;
+    }
 }

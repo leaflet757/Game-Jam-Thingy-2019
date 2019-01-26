@@ -231,6 +231,7 @@ MonoBehaviour:
   leanRight: 100
   moveSpeed: 500
   rotationSpeed: 50
+  dragAmount: 5
   playerBody: {fileID: 1356604531}
 --- !u!4 &1311778159
 Transform:
