@@ -32,13 +32,12 @@ public class PlayerInput : MonoBehaviour
     private GameObject playerBody;
 
     [SerializeField]
-    private Rigidbody playerRigidBody;
+    private Rigidbody unicycleRigidBody;
 
 	// Use this for initialization
 	void Start () 
     {
-		Debug.Assert(playerRigidBody != null);
-        //SetRagDollEnabled(false);
+		Debug.Assert(unicycleRigidBody != null);
 	}
 	
 	// Update is called once per frame
@@ -52,66 +51,47 @@ public class PlayerInput : MonoBehaviour
 
         if (Input.GetKey(leanForward))
         {
-            inputDirection += transform.forward;
+            inputDirection += unicycleRigidBody.transform.forward;
             didPlayerLean = true;
         }
 
         if (Input.GetKey(leanBackward))
         {
-            inputDirection -= transform.forward;
+            inputDirection -= unicycleRigidBody.transform.forward;
             didPlayerLean = true;
         }
 
         if (Input.GetKey(leanRight))
         {
-            eulerRotation += transform.up;
+            eulerRotation += Vector3.up;
             didPlayerRotate = true;
         }
 
         if (Input.GetKey(leanLeft))
         {
-            eulerRotation -= transform.up;
+            eulerRotation -= Vector3.up;
             didPlayerRotate = true;
         }
 
-        playerRigidBody.AddForce(Time.deltaTime * moveSpeed * inputDirection.normalized, ForceMode.Force);
-        transform.Rotate(Time.deltaTime * rotationSpeed * eulerRotation);
+        unicycleRigidBody.AddForce(Time.deltaTime * moveSpeed * inputDirection.normalized, ForceMode.Force);
+        unicycleRigidBody.transform.eulerAngles = unicycleRigidBody.transform.eulerAngles + eulerRotation;
 
         if (didPlayerLean)
         {
-            playerRigidBody.drag = 0;
+            unicycleRigidBody.drag = 0;
         }
         else
         {
-            playerRigidBody.drag = slowDown;
+            unicycleRigidBody.drag = slowDown;
         }
 
         if (didPlayerRotate)
         {
-            playerRigidBody.angularDrag = 0;
+            unicycleRigidBody.angularDrag = 0;
         }
         else
         {
-            playerRigidBody.angularDrag = rotationSlowDown;
+            unicycleRigidBody.angularDrag = rotationSlowDown;
         }
 	}
-
-    public void SetRagDollEnabled(bool setEnabled)
-    {
-        foreach (Rigidbody rb in GetComponentsInChildren<Rigidbody>())
-        {
-            rb.isKinematic = !setEnabled;
-            rb.detectCollisions = setEnabled;
-        }
-
-        foreach (CharacterJoint joint in GetComponentsInChildren<CharacterJoint>())
-        {
-            joint.enableProjection = !setEnabled;
-        }
-
-        foreach (Collider col in GetComponentsInChildren<Collider>())
-        {
-            col.enabled = setEnabled;
-        }
-    }
 }
