@@ -17,29 +17,35 @@ public class PlayerInput : MonoBehaviour
     private KeyCode leanRight = KeyCode.D;
 
     [SerializeField]
-    private float moveSpeed = 50f;
+    private float moveSpeed = 500f;
 
     [SerializeField]
     private float rotationSpeed = 50f;
 
     [SerializeField]
-    private float dragAmount = 5f;
+    private float slowDown = 5f;
+
+    [SerializeField]
+    private float rotationSlowDown = 5f;
 
     [SerializeField]
     private GameObject playerBody;
 
+    [SerializeField]
     private Rigidbody playerRigidBody;
 
 	// Use this for initialization
 	void Start () 
     {
-		playerRigidBody = playerBody.GetComponent<Rigidbody>();
+		Debug.Assert(playerRigidBody != null);
+        //SetRagDollEnabled(false);
 	}
 	
 	// Update is called once per frame
 	void Update () 
     {
-        bool wasInputPressed = false;
+        bool didPlayerLean = false;
+        bool didPlayerRotate = false;
 
 		Vector3 inputDirection = Vector3.zero;
         Vector3 eulerRotation = Vector3.zero;
@@ -47,35 +53,65 @@ public class PlayerInput : MonoBehaviour
         if (Input.GetKey(leanForward))
         {
             inputDirection += transform.forward;
-            wasInputPressed = true;
+            didPlayerLean = true;
         }
 
         if (Input.GetKey(leanBackward))
         {
             inputDirection -= transform.forward;
-            wasInputPressed = true;
+            didPlayerLean = true;
         }
 
         if (Input.GetKey(leanRight))
         {
             eulerRotation += transform.up;
+            didPlayerRotate = true;
         }
 
         if (Input.GetKey(leanLeft))
         {
             eulerRotation -= transform.up;
+            didPlayerRotate = true;
         }
 
         playerRigidBody.AddForce(Time.deltaTime * moveSpeed * inputDirection.normalized, ForceMode.Force);
         transform.Rotate(Time.deltaTime * rotationSpeed * eulerRotation);
 
-        if (wasInputPressed)
+        if (didPlayerLean)
         {
             playerRigidBody.drag = 0;
         }
         else
         {
-            playerRigidBody.drag = dragAmount;
+            playerRigidBody.drag = slowDown;
+        }
+
+        if (didPlayerRotate)
+        {
+            playerRigidBody.angularDrag = 0;
+        }
+        else
+        {
+            playerRigidBody.angularDrag = rotationSlowDown;
         }
 	}
+
+    public void SetRagDollEnabled(bool setEnabled)
+    {
+        foreach (Rigidbody rb in GetComponentsInChildren<Rigidbody>())
+        {
+            rb.isKinematic = !setEnabled;
+            rb.detectCollisions = setEnabled;
+        }
+
+        foreach (CharacterJoint joint in GetComponentsInChildren<CharacterJoint>())
+        {
+            joint.enableProjection = !setEnabled;
+        }
+
+        foreach (Collider col in GetComponentsInChildren<Collider>())
+        {
+            col.enabled = setEnabled;
+        }
+    }
 }
