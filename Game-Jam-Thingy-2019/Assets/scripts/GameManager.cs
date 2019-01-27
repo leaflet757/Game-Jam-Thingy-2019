@@ -90,6 +90,7 @@ public class GameManager : MonoBehaviour
             {
                 gameCanvas.SetMainGameScreenEnabled(true);
                 gameCanvas.SetScore(timesCrossedStreet);
+                gameCanvas.FlashText(GameCanvas.FlashLabel.Info, 5f, 5f);
             }
         }
     }
@@ -103,10 +104,10 @@ public class GameManager : MonoBehaviour
     public void IncrementScore()
     {
         timesCrossedStreet++;
-        if (gameCanvas)
+        if (gameCanvas != null)
         {
             gameCanvas.SetScore(timesCrossedStreet);
-            gameCanvas.FlashTurnAroundText(5f, 1f);
+            gameCanvas.FlashText(GameCanvas.FlashLabel.TurnAround, 5f, 0.25f);
         }
     }
 
