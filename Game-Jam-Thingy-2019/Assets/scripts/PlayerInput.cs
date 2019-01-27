@@ -32,13 +32,32 @@ public class PlayerInput : MonoBehaviour
     private GameObject playerBody;
 
     [SerializeField]
-    private Rigidbody unicycleRigidBody;
+    private Rigidbody playerRigidBody;
+
+    [SerializeField]
+    private Transform unicycleRootTransform;
+
+    [SerializeField]
+    private Transform unicycleAnchor;
+
+    [SerializeField]
+    private Transform centerLeanAnchor;
+    
+    [SerializeField]
+    private Transform leftLeanAnchor;
+    
+    [SerializeField]
+    private Transform rightLeanAnchor;
+
+    [SerializeField]
+    private Camera mainCamera;
 
 	// Use this for initialization
 	void Start () 
     {
-		Debug.Assert(unicycleRigidBody != null);
-	}
+        Debug.Assert(playerRigidBody != null);
+        Debug.Assert(mainCamera != null);
+    }
 	
 	// Update is called once per frame
 	void Update () 
@@ -49,15 +68,17 @@ public class PlayerInput : MonoBehaviour
 		Vector3 inputDirection = Vector3.zero;
         Vector3 eulerRotation = Vector3.zero;
 
+        Vector3 forwardDirection = Vector3.Project(mainCamera.transform.forward, transform.forward);
+
         if (Input.GetKey(leanForward))
         {
-            inputDirection += unicycleRigidBody.transform.forward;
+            inputDirection += forwardDirection;
             didPlayerLean = true;
         }
 
         if (Input.GetKey(leanBackward))
         {
-            inputDirection -= unicycleRigidBody.transform.forward;
+            inputDirection -= forwardDirection;
             didPlayerLean = true;
         }
 
@@ -73,25 +94,29 @@ public class PlayerInput : MonoBehaviour
             didPlayerRotate = true;
         }
 
-        unicycleRigidBody.AddForce(Time.deltaTime * moveSpeed * inputDirection.normalized, ForceMode.Force);
-        unicycleRigidBody.transform.eulerAngles = unicycleRigidBody.transform.eulerAngles + eulerRotation;
+        // Move the player forward or backward
+        playerRigidBody.AddForce(moveSpeed * inputDirection.normalized, ForceMode.Force);
 
+        // Turn the player about the Y axis
+        transform.eulerAngles = transform.eulerAngles + eulerRotation;
+
+        // If the player is moving forward then set the drag to 0
         if (didPlayerLean)
         {
-            unicycleRigidBody.drag = 0;
+            playerRigidBody.drag = 0;
         }
-        else
+        else // Otherwise apply some drag
         {
-            unicycleRigidBody.drag = slowDown;
+            playerRigidBody.drag = slowDown;
         }
 
         if (didPlayerRotate)
         {
-            unicycleRigidBody.angularDrag = 0;
+            playerRigidBody.angularDrag = 0;
         }
         else
         {
-            unicycleRigidBody.angularDrag = rotationSlowDown;
+            playerRigidBody.angularDrag = rotationSlowDown;
         }
 	}
 }
