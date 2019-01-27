@@ -1697,6 +1697,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6461f5e34610fc84f9f8156710a1628a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathEffectPrefab: {fileID: 100002, guid: ef14b50d264bdae438bab0d91e282900, type: 2}
+  rainPrefab: {fileID: 100004, guid: 814707bb66d0ffd43a742a243e0b77a9, type: 2}
+  impactEffectPrefab: {fileID: 100002, guid: 9cc2834cb3b9cf643be9175e75858cb8, type: 2}
 --- !u!124 &124704698232281408
 Behaviour:
   m_ObjectHideFlags: 1
