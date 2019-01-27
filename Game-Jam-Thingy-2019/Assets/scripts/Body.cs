@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Body : MonoBehaviour {
 
-    [SerializeField]
     private GameManager gameManager;
+
+    private const int TERRAIN_LAYER = 9;
 
 	void OnCollisionEnter(Collision collision) 
     {
-        Debug.Log("Collision: " + collision.gameObject.name);
-        if (collision.gameObject.CompareTag("Terrain"))
+        if (collision.gameObject.layer == TERRAIN_LAYER)
         {
             if (gameManager != null)
             {
@@ -21,5 +21,10 @@ public class Body : MonoBehaviour {
                 Debug.Log("GameManager has not been set for Body script!");
             }
         }
+    }
+
+    public void Setup(GameManager setGameManager)
+    {
+        gameManager = setGameManager;
     }
 }

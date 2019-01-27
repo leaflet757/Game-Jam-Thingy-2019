@@ -17,11 +17,14 @@ public class GameManager : MonoBehaviour
 
     private GameState gameState = GameState.Title;
 
+    private StreetManager streetManager;
+    private PlayerInput playerInput;
+
 	// Use this for initialization
 	void Start () 
     {
         gameState = GameState.Title;
-        gameCanvas.SetTitleScreenEnabled(true);
+        if (gameCanvas != null) gameCanvas.SetTitleScreenEnabled(true);
 	}
 
     void Update()
@@ -55,40 +58,70 @@ public class GameManager : MonoBehaviour
     private void UpdateTimer()
     {
         gameTime += Time.deltaTime;
-        gameCanvas.SetGameTime(gameTime);
+        if (gameCanvas != null) gameCanvas.SetGameTime(gameTime);
     }
 
     private void StartGame()
     {
-        gameState = GameState.Running;
-        
-        gameCanvas.SetMainGameScreenEnabled(true);
-        
         SceneManager.LoadScene(streetSceneName, LoadSceneMode.Additive);
-        
-        gameTime = 0;
-        timesCrossedStreet = 0;
-        gameCanvas.SetScore(timesCrossedStreet);
+        SceneManager.sceneLoaded += SceneManager_sceneLoaded;
+    }
+
+    private void SceneManager_sceneLoaded(Scene loadedScene, LoadSceneMode loadSceneMode)
+    {
+        if (loadedScene.name == streetSceneName)
+        {
+            var foundStreetManagers = GameObject.FindObjectsOfType<StreetManager>();
+            Debug.Assert(foundStreetManagers.Length == 1, "Did not find the street manager");
+            streetManager = foundStreetManagers[0];
+            streetManager.Setup(this);
+
+            var foundPlayers = GameObject.FindObjectsOfType<PlayerInput>();
+            Debug.Assert(foundPlayers.Length == 1, "Did not find the player");
+            playerInput = foundPlayers[0];
+            playerInput.Setup(this);
+
+            gameState = GameState.Running;
+
+            gameTime = 0;
+            timesCrossedStreet = 0;
+
+            if (gameCanvas != null)
+            {
+                gameCanvas.SetMainGameScreenEnabled(true);
+                gameCanvas.SetScore(timesCrossedStreet);
+            }
+        }
     }
 
     private void Restart()
     {
+        SceneManager.sceneLoaded -= SceneManager_sceneLoaded;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void IncrementScore()
     {
         timesCrossedStreet++;
-        gameCanvas.SetScore(timesCrossedStreet);
+        if (gameCanvas)
+        {
+            gameCanvas.SetScore(timesCrossedStreet);
+        }
     }
 
     public void GameOver()
     {
+        gameCanvas.SetGameOverScreen(true);
         gameState = GameState.GameOver;
     }
 
     public int GetScore()
     {
         return timesCrossedStreet;
+    }
+
+    public GameState GetGameState()
+    {
+        return gameState;
     }
 }

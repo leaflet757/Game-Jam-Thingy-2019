@@ -5,21 +5,23 @@ using UnityEngine;
 public class StreetCollider : MonoBehaviour 
 {
     [SerializeField]
-    private GameManager gameManager;
+    private StreetManager streetManager;
+
+    private bool isStartZone = false;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.transform.parent != null && other.transform.parent.CompareTag("Player"))
-        {
-            if (gameManager != null)
-            {
-                gameManager.IncrementScore();
-                Debug.Log("Score: " + gameManager.GetScore());
-            }
-            else
-            {
-                Debug.Log("GameManaager is null, should increment score!");
-            }
-        }
+        streetManager.OnStreetColliderHit(this, other);
+    }
+
+    public void Setup(StreetManager setStreetManager, bool setStartZone)
+    {
+        streetManager = setStreetManager;
+        isStartZone = setStartZone;
+    }
+
+    public bool IsStartZone()
+    {
+        return isStartZone;
     }
 }

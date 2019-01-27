@@ -18,6 +18,9 @@ public class GameCanvas : MonoBehaviour
     private GameObject titleScreen;
 
     [SerializeField]
+    private GameObject gameOverPanel;
+
+    [SerializeField]
     private Text scoreText;
 
     [SerializeField]
@@ -27,11 +30,20 @@ public class GameCanvas : MonoBehaviour
     {
         mainGameScreen.SetActive(setEnabled);
         titleScreen.SetActive(!setEnabled);
+        gameOverPanel.SetActive(!setEnabled);
     }
 
     public void SetTitleScreenEnabled(bool setEnabled)
     {
         titleScreen.SetActive(setEnabled);
+        mainGameScreen.SetActive(!setEnabled);
+        gameOverPanel.SetActive(!setEnabled);
+    }
+
+    public void SetGameOverScreen(bool setEnabled)
+    {
+        gameOverPanel.SetActive(setEnabled);
+        titleScreen.SetActive(!setEnabled);
         mainGameScreen.SetActive(!setEnabled);
     }
 

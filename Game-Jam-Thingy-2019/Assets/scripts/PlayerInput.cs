@@ -52,6 +52,8 @@ public class PlayerInput : MonoBehaviour
     [SerializeField]
     private Camera mainCamera;
 
+    private GameManager gameManager;
+
 	// Use this for initialization
 	void Start () 
     {
@@ -62,6 +64,9 @@ public class PlayerInput : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
     {
+        // return early if we are not running
+        if (gameManager.GetGameState() != GameState.Running) return;
+
         bool didPlayerLean = false;
         bool didPlayerRotate = false;
 
@@ -119,4 +124,13 @@ public class PlayerInput : MonoBehaviour
             playerRigidBody.angularDrag = rotationSlowDown;
         }
 	}
+
+    public void Setup(GameManager setManager)
+    {
+        gameManager = setManager;
+
+        Body playerBody = GetComponentInChildren<Body>();
+        Debug.Assert(playerBody != null, "playerBody script is NULL");
+        playerBody.Setup(setManager);
+    }
 }
