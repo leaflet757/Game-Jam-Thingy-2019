@@ -1677,6 +1677,7 @@ MonoBehaviour:
   rotationSpeed: 50
   slowDown: 500
   rotationSlowDown: 5
+  maxSpeed: 10
   playerBody: {fileID: 1321592873889384}
   playerRigidBody: {fileID: 54418601238784094}
   unicycleRootTransform: {fileID: 4684933623289142}
@@ -1696,7 +1697,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6461f5e34610fc84f9f8156710a1628a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 0}
 --- !u!124 &124704698232281408
 Behaviour:
   m_ObjectHideFlags: 1

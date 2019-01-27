@@ -29,6 +29,9 @@ public class PlayerInput : MonoBehaviour
     private float rotationSlowDown = 5f;
 
     [SerializeField]
+    private float maxSpeed = 10f;
+
+    [SerializeField]
     private GameObject playerBody;
 
     [SerializeField]
@@ -99,8 +102,11 @@ public class PlayerInput : MonoBehaviour
             didPlayerRotate = true;
         }
 
-        // Move the player forward or backward
-        playerRigidBody.AddForce(moveSpeed * inputDirection.normalized, ForceMode.Force);
+        if (playerRigidBody.velocity.magnitude < maxSpeed)
+        {
+            // Move the player forward or backward
+            playerRigidBody.AddForce(moveSpeed * inputDirection.normalized, ForceMode.Force);
+        }
 
         // Turn the player about the Y axis
         transform.eulerAngles = transform.eulerAngles + eulerRotation;
