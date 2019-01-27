@@ -4,7 +4,7 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - carPrefab: {fileID: 1771751218257072, guid: 718b007abd3a1d240a252827f1b5b7af,
+  - carPrefab: {fileID: 1969900329922208, guid: a86efd97b2cbafe4e99a925cffed0eec,
       type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
