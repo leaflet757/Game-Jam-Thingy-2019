@@ -293,7 +293,7 @@ GameObject:
   - component: {fileID: 403365591}
   - component: {fileID: 403365590}
   - component: {fileID: 403365589}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RoadPiece
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -454,34 +454,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &539975868
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 539975869}
-  m_Layer: 0
-  m_Name: PlayerSpawnPoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &539975869
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 539975868}
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 7.7, z: -58.48824}
-  m_LocalScale: {x: 14.077934, y: 14.835695, z: 100.632935}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &724387039
 GameObject:
   m_ObjectHideFlags: 0
@@ -493,7 +465,7 @@ GameObject:
   - component: {fileID: 724387043}
   - component: {fileID: 724387042}
   - component: {fileID: 724387041}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RoadPiece (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -579,7 +551,7 @@ GameObject:
   - component: {fileID: 789260571}
   - component: {fileID: 789260570}
   - component: {fileID: 789260569}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RoadPiece (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -692,11 +664,6 @@ Prefab:
     - target: {fileID: 4829369157163030, guid: c45efc12c043cda40a9c0dca38e6d8e2, type: 2}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 144271147445353484, guid: c45efc12c043cda40a9c0dca38e6d8e2,
-        type: 2}
-      propertyPath: m_ConnectedAnchor.y
-      value: 0.008732293
       objectReference: {fileID: 0}
     - target: {fileID: 1046311882941778, guid: c45efc12c043cda40a9c0dca38e6d8e2, type: 2}
       propertyPath: m_IsActive
