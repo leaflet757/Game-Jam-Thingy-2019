@@ -6,7 +6,7 @@ public class CarSpawner : MonoBehaviour {
 
     public GameObject carPrefab = null;
 
-    private Rigidbody _rb;
+    public Rigidbody rb;
     public Vector3 start1 = new Vector3();
 
     // Use this for initialization
