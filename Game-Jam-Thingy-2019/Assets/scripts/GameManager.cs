@@ -106,6 +106,7 @@ public class GameManager : MonoBehaviour
         if (gameCanvas)
         {
             gameCanvas.SetScore(timesCrossedStreet);
+            gameCanvas.FlashTurnAroundText(5f, 1f);
         }
     }
 

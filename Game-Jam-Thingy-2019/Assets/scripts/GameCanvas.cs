@@ -26,11 +26,19 @@ public class GameCanvas : MonoBehaviour
     [SerializeField]
     private Text timeElapsedText;
 
+    [SerializeField]
+    private Text turnAroundText;
+
+    private float turnAroundTextFlashDuration = 0;
+    private float turnAroundFlashInterval = 0;
+
     public void SetMainGameScreenEnabled(bool setEnabled)
     {
         mainGameScreen.SetActive(setEnabled);
         titleScreen.SetActive(!setEnabled);
         gameOverPanel.SetActive(!setEnabled);
+
+        turnAroundText.enabled = false;
     }
 
     public void SetTitleScreenEnabled(bool setEnabled)
@@ -55,5 +63,38 @@ public class GameCanvas : MonoBehaviour
     public void SetGameTime(float setTime)
     {
         timeElapsedText.text = string.Format(elapsedTimeLabel, Mathf.FloorToInt(setTime).ToString());
+    }
+
+    public void FlashTurnAroundText(float duration, float interval)
+    {
+        turnAroundTextFlashDuration = duration;
+        turnAroundFlashInterval = interval;
+
+        turnAroundText.enabled = true;
+        StartCoroutine(DisplayTurnAroundText());
+    }
+
+    private IEnumerator DisplayTurnAroundText()
+    {
+        float displayTime = 0;
+        float intervalTime = 0;
+        
+        while (displayTime < turnAroundTextFlashDuration)
+        {
+            displayTime += Time.deltaTime;
+            intervalTime += Time.deltaTime;
+
+            if (intervalTime > turnAroundFlashInterval)
+            {
+                intervalTime = 0;
+                turnAroundText.enabled = !turnAroundText.enabled;
+            }
+
+            yield return null;
+        }
+
+        turnAroundText.enabled = false;
+
+        yield return null;
     }
 }
