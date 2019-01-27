@@ -5,22 +5,18 @@ using UnityEngine;
 public class CarSpawner : MonoBehaviour {
 
     public GameObject carPrefab = null;
-    public float SharkIntervalInSeconds = 5.0f;
 
-    private float spawnCounter = 0;
     private Rigidbody _rb;
-
-    private float totalSharkSpawnedCount = 0;
+    public Vector3 start1 = new Vector3();
 
     // Use this for initialization
-    void Start () {
-        Instantiate(carPrefab, transform.position, Quaternion.identity);
-
-	}
+    void Start()
+    {
+        Instantiate(carPrefab,start1, Quaternion.identity);
+    }
 	
 	// Update is called once per frame
 	void Update () {
-        
-        
+                
     }
 }
