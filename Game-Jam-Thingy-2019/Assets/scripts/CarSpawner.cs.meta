@@ -1,9 +1,11 @@
 fileFormatVersion: 2
-guid: 33b1564a88d03ec478ce051d41c8c9c1
+guid: dbf1e8d8918f58145bdce906f7eddec0
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - carPrefab: {fileID: 1771751218257072, guid: 718b007abd3a1d240a252827f1b5b7af,
+      type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
