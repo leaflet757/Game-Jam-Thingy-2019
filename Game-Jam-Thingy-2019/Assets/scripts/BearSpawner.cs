@@ -11,10 +11,6 @@ public class BearSpawner : MonoBehaviour {
 
     public AudioClip launchSound;
     private AudioSource source;
-    private float volLowRange = .5f;
-    private float volHighRange = 1.0f;
-
- 
 
     // Use this for initialization
     void Start()

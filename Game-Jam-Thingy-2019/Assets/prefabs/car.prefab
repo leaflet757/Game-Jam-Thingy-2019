@@ -15,28 +15,24 @@ Prefab:
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_PrefabInternal: {fileID: 0}
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4784555582634020}
-  - component: {fileID: 33320764033783288}
   - component: {fileID: 23432831934957966}
-  - component: {fileID: 95621563041474442}
-  - component: {fileID: 114131578110383456}
+  - component: {fileID: 33320764033783288}
   - component: {fileID: 54840966168347108}
-  - component: {fileID: 65686603563987964}
-  m_Layer: 12
-  - component: {fileID: 82196594070677376}
+  - component: {fileID: 114131578110383456}
   m_Layer: 0
   m_Name: car
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &4784555582634020
 Transform:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1038512900923604}
@@ -49,7 +45,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &23432831934957966
 MeshRenderer:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1038512900923604}
@@ -84,14 +80,14 @@ MeshRenderer:
   m_SortingOrder: 0
 --- !u!33 &33320764033783288
 MeshFilter:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1038512900923604}
   m_Mesh: {fileID: 4300002, guid: 2fe6e5c0b592b8d40b254db6941937bc, type: 3}
 --- !u!54 &54840966168347108
 Rigidbody:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1038512900923604}
@@ -104,8 +100,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 64
   m_CollisionDetection: 0
---- !u!65 &65686603563987964
-BoxCollider:
 --- !u!82 &82196594070677376
 AudioSource:
   m_ObjectHideFlags: 1
@@ -205,7 +199,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114131578110383456
 MonoBehaviour:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1038512900923604}

@@ -15,8 +15,6 @@ public class CarSpawner : MonoBehaviour {
     //AUDIO
     public AudioClip launchSound;
     private AudioSource source;
-    private float volLowRange = .5f;
-    private float volHighRange = 1.0f;
 
     //DELTA
     private Vector3 delta1 = new Vector3(-750, 0, 21);
