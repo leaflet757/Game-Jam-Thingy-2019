@@ -74,6 +74,11 @@ public class GameManager : MonoBehaviour
     {
         gameTime += Time.deltaTime;
         if (gameCanvas != null) gameCanvas.SetGameTime(gameTime);
+
+        if (!gameAudio.IsSoundFxPlaying("aster") && !gameAudio.IsTrackPlaying("day_track_1"))
+        {
+            gameAudio.PlayTrack("day_track_1");
+        }
     }
 
     private void StartGame()
@@ -94,7 +99,7 @@ public class GameManager : MonoBehaviour
             var foundPlayers = GameObject.FindObjectsOfType<PlayerInput>();
             Debug.Assert(foundPlayers.Length == 1, "Did not find the player");
             playerInput = foundPlayers[0];
-            playerInput.Setup(this);
+            playerInput.Setup(this, gameAudio);
 
             gameState = GameState.Running;
 
@@ -132,6 +137,10 @@ public class GameManager : MonoBehaviour
         {
             gameCanvas.SetGameOverScreen(true);
             gameState = GameState.GameOver;
+        }
+        if (gameAudio != null)
+        {
+            gameAudio.PlaySoundFx("explosion");
         }
     }
 

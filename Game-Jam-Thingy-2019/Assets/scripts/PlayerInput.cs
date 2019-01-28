@@ -56,6 +56,7 @@ public class PlayerInput : MonoBehaviour
     private Camera mainCamera;
 
     private GameManager gameManager;
+    private GameAudio gameAudio;
 
 	// Use this for initialization
 	void Start () 
@@ -115,10 +116,15 @@ public class PlayerInput : MonoBehaviour
         if (didPlayerLean)
         {
             playerRigidBody.drag = 0;
+            if (!gameAudio.IsSoundFxPlaying("unicycle"))
+            {
+                gameAudio.PlaySoundFx("unicycle");
+            }
         }
         else // Otherwise apply some drag
         {
             playerRigidBody.drag = slowDown;
+            gameAudio.StopSoundFx("unicycle");
         }
 
         if (didPlayerRotate)
@@ -131,13 +137,15 @@ public class PlayerInput : MonoBehaviour
         }
 	}
 
-    public void Setup(GameManager setManager)
+    public void Setup(GameManager setManager, GameAudio setGameAudio)
     {
         gameManager = setManager;
 
         Body playerBody = GetComponentInChildren<Body>();
         Debug.Assert(playerBody != null, "playerBody script is NULL");
         playerBody.Setup(setManager, this );
+
+        gameAudio = setGameAudio;
     }
 
     public Transform GetUnicycleRootTransform()

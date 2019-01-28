@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -137,5 +138,17 @@ public class GameAudio : MonoBehaviour
             }
         }
         return false;
+    }
+
+    public void StopSoundFx(string key)
+    {
+        AudioItem item = FindSoundFx(key);
+        foreach (var audioSource in fxSoundPool)
+        {
+            if (audioSource.isPlaying && audioSource.clip == item.audioSource)
+            {
+                audioSource.Stop();
+            }
+        }
     }
 }
