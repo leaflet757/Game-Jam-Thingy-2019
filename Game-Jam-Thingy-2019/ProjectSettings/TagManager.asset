@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - StreetCollider
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -18,7 +19,7 @@ TagManager:
   - Terrain
   - UnicycleWheel
   - Spine
-  - 
+  - Enemy
   - 
   - 
   - 

@@ -68,7 +68,7 @@ public class PlayerInput : MonoBehaviour
 	void Update () 
     {
         // return early if we are not running
-        if (gameManager.GetGameState() != GameState.Running) return;
+        if (gameManager != null && gameManager.GetGameState() != GameState.Running) return;
 
         bool didPlayerLean = false;
         bool didPlayerRotate = false;
