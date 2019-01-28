@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class CarSpawner : MonoBehaviour {
 
-    //[SerializeField]
-   // GameManager gameManager;
-
     public GameObject carPrefab = null;
 
     public Vector3 start1 = new Vector3();
@@ -39,7 +36,7 @@ public class CarSpawner : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-       // int score = gameManager.GetScore();
+    //    int score = gameManager.GetScore();
         
         
             spawnCounter += Time.deltaTime;
@@ -47,15 +44,8 @@ public class CarSpawner : MonoBehaviour {
             {
                 spawnCounter = 0;
                 normalSpawn();
+                normalSpawn();
             }
-            
-            
-        
-      //  else if (score >= 50)
-      //  {
-
-       //     deltaSpawn();
-      //  }
     }
     void deltaSpawn()
     {
@@ -67,8 +57,7 @@ public class CarSpawner : MonoBehaviour {
     }
     void normalSpawn()
     {
-        Random r = new Random();
-        Vector3 startLocation = new Vector3(-400, 0, Random.Range(-41, 21));
+        Vector3 startLocation = new Vector3(Random.Range(-750, -411), 0, Random.Range(-41, 21));
         Instantiate(carPrefab, startLocation, Quaternion.identity);
         float newPitch = Random.Range(.5f, 1.0f);
         source.PlayOneShot(launchSound, newPitch);
