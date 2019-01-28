@@ -19,7 +19,7 @@ public class InitialVelocity : MonoBehaviour
     private void Update()
     {
         rb.velocity = startingVelocity;
-        if (transform.position.x > 700)
+        if (transform.position.x > 700 || transform.position.y < -500)
         {
           //  rb = null;
             Destroy(this.gameObject);
