@@ -382,6 +382,7 @@ GameObject:
   - component: {fileID: 4502179330802210}
   - component: {fileID: 95263856872622710}
   - component: {fileID: 54406806911926198}
+  - component: {fileID: 65916016171541086}
   m_Layer: 12
   m_Name: bear
   m_TagString: Enemy
@@ -755,6 +756,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 64
   m_CollisionDetection: 0
+--- !u!65 &65916016171541086
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1889665009803230}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: -1.07, y: 1.72, z: 2.78}
+  m_Center: {x: 0, y: 0.86, z: 0.13}
 --- !u!95 &95263856872622710
 Animator:
   serializedVersion: 3
