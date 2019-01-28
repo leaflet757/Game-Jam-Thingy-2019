@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
     {
         gameState = GameState.Title;
         if (gameCanvas != null) gameCanvas.SetTitleScreenEnabled(true);
-        if (gameAudio != null) gameAudio.PlayTrack("day_track_1");
+        if (gameAudio != null) gameAudio.PlaySoundFx("aster");
 	}
 
     void Update()
@@ -39,6 +39,7 @@ public class GameManager : MonoBehaviour
         {
             case GameState.Title:
             {
+                CheckBgTrackStart();
                 if (Input.GetKeyUp(KeyCode.Space))
                 {
                     StartGame();
@@ -61,12 +62,18 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void CheckBgTrackStart()
+    {
+        if (!gameAudio.IsSoundFxPlaying("aster"))
+        {
+            gameAudio.PlayTrack("day_track_1");
+        }
+    }
+
     private void UpdateTimer()
     {
         gameTime += Time.deltaTime;
         if (gameCanvas != null) gameCanvas.SetGameTime(gameTime);
-
-
     }
 
     private void StartGame()

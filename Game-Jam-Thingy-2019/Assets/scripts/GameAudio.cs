@@ -20,6 +20,9 @@ public class GameAudio : MonoBehaviour
     [SerializeField]
     private AudioSource bgSource;
 
+    [SerializeField]
+    private AudioSource[] fxSoundPool;
+
     private void Start()
     {
         Debug.Assert(bgSource != null, "Background audio source is null!");
@@ -31,6 +34,18 @@ public class GameAudio : MonoBehaviour
         {
             bgTrackSources = new AudioItem[0];
         }
+    }
+
+    private AudioSource FindOpenFxSource()
+    {
+        foreach (var audioSource in fxSoundPool)
+        {
+            if (!audioSource.isPlaying)
+            {
+                return audioSource;
+            }
+        }
+        return null;
     }
 
     private AudioItem FindAudioTrack(string key)
@@ -69,8 +84,8 @@ public class GameAudio : MonoBehaviour
                 bgSource.loop = true;
                 bgSource.volume = 0.5f;
                 bgSource.Play();
-                return;
             }
+            return;
         }
         Debug.Log("Could not find audio for key: " + key);
     }
@@ -86,39 +101,19 @@ public class GameAudio : MonoBehaviour
         Debug.Log("Could not find audio for key: " + key);
     }
 
-    public void PlaySoundFx(string key, bool restart = false)
+    public void PlaySoundFx(string key)
     {
-        Debug.Log("TODO: need a way to play multiple sound effects");
-        return;
-
+        AudioSource audioSource = FindOpenFxSource();
         AudioItem item = FindSoundFx(key);
-        if (item != null)
+        if (item != null && audioSource != null)
         {
-            if (!bgSource.isPlaying || restart)
-            {
-                bgSource.Stop();
-                bgSource.clip = item.audioSource;
-                bgSource.loop = true;
-                bgSource.volume = 0.5f;
-                bgSource.Play();
-                return;
-            }
-        }
-        Debug.Log("Could not find sound fx for key: " + key);
-    }
-
-    public void StopSoundFx(string key)
-    {
-        Debug.Log("TODO: stop sound effect not implemented");
-        return;
-
-        AudioItem item = FindSoundFx(key);
-        if (item != null && bgSource.isPlaying)
-        {
-            bgSource.Stop();
+            audioSource.clip = item.audioSource;
+            audioSource.loop = false;
+            audioSource.volume = 0.5f;
+            audioSource.Play();
             return;
         }
-        Debug.Log("Could not find sound fx for key: " + key);
+        Debug.Log("Could not find play fx for key: " + key);
     }
 
     public bool IsTrackPlaying(string key)
@@ -133,11 +128,14 @@ public class GameAudio : MonoBehaviour
 
     public bool IsSoundFxPlaying(string key)
     {
-        return false;
         AudioItem item = FindSoundFx(key);
-        if (item != null)
+        foreach (var audioSource in fxSoundPool)
         {
-            
+            if (audioSource.isPlaying && audioSource.clip == item.audioSource)
+            {
+                return audioSource;
+            }
         }
+        return false;
     }
 }
