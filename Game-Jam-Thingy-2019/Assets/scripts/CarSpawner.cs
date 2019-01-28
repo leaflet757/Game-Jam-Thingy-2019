@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class CarSpawner : MonoBehaviour {
 
-    //[SerializeField]
-   // GameManager gameManager;
+    [SerializeField]
+   private GameManager gameManager;
 
     public GameObject carPrefab = null;
 
@@ -39,7 +39,7 @@ public class CarSpawner : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-       // int score = gameManager.GetScore();
+    //    int score = gameManager.GetScore();
         
         
             spawnCounter += Time.deltaTime;
