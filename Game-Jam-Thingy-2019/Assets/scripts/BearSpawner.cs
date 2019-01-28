@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class BearSpawner : MonoBehaviour {
 
-    public GameObject carPrefab = null;
+    public GameObject bearBrefab = null;
 
     private Rigidbody _rb; //do bears have animations or are they rigid?
 
     // Use this for initialization
     void Start()
     {
-        Instantiate(carPrefab, transform.position, Quaternion.identity);
+        Instantiate(bearBrefab, transform.position, Quaternion.identity);
     }
 
     // Update is called once per frame

@@ -19,6 +19,13 @@ public class InitialVelocity : MonoBehaviour
     private void Update()
     {
         rb.velocity = startingVelocity;
+        if (transform.position.x > 700)
+        {
+          //  rb = null;
+            Destroy(this.gameObject);
+            Debug.Log("DESTROYED CAR");
+            
+        }
     }
 
 }
