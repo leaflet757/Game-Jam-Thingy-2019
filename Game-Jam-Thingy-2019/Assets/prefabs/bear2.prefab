@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4240634827044706}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Front Leg R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34,7 +34,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4104240991230698}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Neck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,7 +49,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4591304744104494}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Front Foot R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64,7 +64,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4171178410265200}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Back Foot L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -79,7 +79,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4463061178303674}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Back Leg R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4834268618711950}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Front Foot R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,7 +109,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4750789605018548}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Lower Leg L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128,9 +128,10 @@ GameObject:
   - component: {fileID: 54806759182948850}
   - component: {fileID: 114320577963799676}
   - component: {fileID: 82634749423043186}
-  m_Layer: 0
+  - component: {fileID: 65831856416224724}
+  m_Layer: 12
   m_Name: bear2
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -143,7 +144,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4218233784179014}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Chest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -158,7 +159,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4781343392541742}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Back Foot R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -174,7 +175,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4104858874020384}
   - component: {fileID: 137323886408488288}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: 11053_PolarBear001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -189,7 +190,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4391765723278750}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Front Leg L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -204,7 +205,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4180946041899840}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Front Foot L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -219,7 +220,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4828543714882566}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Lower Leg R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -234,7 +235,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4973767797935882}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Back Foot L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -249,7 +250,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4923025185602496}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Back Foot R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -264,7 +265,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4370546953377194}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Spine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -279,7 +280,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4307355420973812}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -294,7 +295,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4408587977768908}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Front Lower Leg L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -309,7 +310,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4832013540216770}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Front Foot L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -324,7 +325,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4616482610372960}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Front Lower Leg R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -339,7 +340,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4599446822710692}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Back Leg L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -354,7 +355,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4179864557138440}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Head_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -369,7 +370,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4391486646563186}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Armature
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -384,7 +385,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4699500665631440}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Pelvis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -679,8 +680,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1285393838773500}
-  m_LocalRotation: {x: -0, y: -1, z: 0, w: 0.000001529898}
-  m_LocalPosition: {x: -56.91005, y: 8.575648e-19, z: -0.38621283}
+  m_LocalRotation: {x: -0, y: -1, z: 0, w: 0.0000017047433}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 7, y: 7, z: 7}
   m_Children:
   - {fileID: 4104858874020384}
@@ -757,6 +758,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 68
   m_CollisionDetection: 0
+--- !u!65 &65831856416224724
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1285393838773500}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.97, y: 1.91, z: 2}
+  m_Center: {x: 0, y: 0.91, z: 0}
 --- !u!82 &82634749423043186
 AudioSource:
   m_ObjectHideFlags: 1
@@ -824,7 +837,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:

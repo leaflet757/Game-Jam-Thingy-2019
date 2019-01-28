@@ -376,22 +376,20 @@ GameObject:
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_PrefabInternal: {fileID: 0}
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4502179330802210}
-  - component: {fileID: 95263856872622710}
-  - component: {fileID: 54406806911926198}
   - component: {fileID: 65916016171541086}
-  m_Layer: 12
+  - component: {fileID: 54406806911926198}
   - component: {fileID: 114710063624015018}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: bear
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4011046609308372
 Transform:
   m_ObjectHideFlags: 1
@@ -551,7 +549,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4502179330802210
 Transform:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1889665009803230}
@@ -745,7 +743,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &54406806911926198
 Rigidbody:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1889665009803230}
@@ -760,7 +758,7 @@ Rigidbody:
   m_CollisionDetection: 0
 --- !u!65 &65916016171541086
 BoxCollider:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1889665009803230}
@@ -789,7 +787,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114710063624015018
 MonoBehaviour:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1889665009803230}
