@@ -137,6 +137,11 @@ public class PlayerInput : MonoBehaviour
 
         Body playerBody = GetComponentInChildren<Body>();
         Debug.Assert(playerBody != null, "playerBody script is NULL");
-        playerBody.Setup(setManager);
+        playerBody.Setup(setManager, this );
+    }
+
+    public Transform GetUnicycleRootTransform()
+    {
+        return unicycleRootTransform;
     }
 }

@@ -15,7 +15,11 @@ public class Body : MonoBehaviour
 
     private GameManager gameManager;
 
+    private PlayerInput playerInput;
+
     private const int TERRAIN_LAYER = 9;
+
+    private bool isDatBoiDead = false;
 
 	void OnCollisionEnter(Collision collision) 
     {
@@ -46,9 +50,10 @@ public class Body : MonoBehaviour
         }
     }
 
-    public void Setup(GameManager setGameManager)
+    public void Setup(GameManager setGameManager, PlayerInput setPlayerInput)
     {
         gameManager = setGameManager;
+        playerInput = setPlayerInput;
     }
 
     private void PlayDeathFx()
@@ -57,6 +62,13 @@ public class Body : MonoBehaviour
         {
             GameObject deathFxInstance = Instantiate(deathEffectPrefab, transform.position, Quaternion.identity);
             deathFxInstance.transform.rotation = Quaternion.Euler(-90,0,0);
+
+            if (playerInput != null)
+            {
+                Transform unicycleRoot = playerInput.GetUnicycleRootTransform();
+                deathFxInstance = Instantiate(deathEffectPrefab, unicycleRoot.transform.position, Quaternion.identity);
+                deathFxInstance.transform.rotation = Quaternion.Euler(-90,0,0);
+            }
         }
         else
         {
@@ -66,6 +78,23 @@ public class Body : MonoBehaviour
         {
             //GameObject rainFxInstance = Instantiate(rainPrefab, transform.position, Quaternion.identity);
             //rainFxInstance.transform.rotation = Quaternion.Euler(90,0,0);
+        }
+    }
+
+    void Update()
+    {
+        if (transform.position.y < -10f && !isDatBoiDead)
+        {
+            if (gameManager != null)
+            {
+                PlayDeathFx();
+                gameManager.GameOver();
+            }
+            else
+            {
+                Debug.Log("GameManager has not been set for Body script!");
+            }
+            isDatBoiDead = true;
         }
     }
 }
