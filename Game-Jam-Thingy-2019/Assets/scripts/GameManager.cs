@@ -9,11 +9,16 @@ public class GameManager : MonoBehaviour
     private GameCanvas gameCanvas;
 
     [SerializeField]
+    private GameAudio gameAudio;
+
+    [SerializeField]
     private string streetSceneName = "street";
 
     private int timesCrossedStreet = 0;
 
     private float gameTime = 0;
+
+    private bool isDayTime = true;
 
     private GameState gameState = GameState.Title;
 
@@ -25,6 +30,7 @@ public class GameManager : MonoBehaviour
     {
         gameState = GameState.Title;
         if (gameCanvas != null) gameCanvas.SetTitleScreenEnabled(true);
+        if (gameAudio != null) gameAudio.PlayTrack("day_track_1");
 	}
 
     void Update()
@@ -59,6 +65,8 @@ public class GameManager : MonoBehaviour
     {
         gameTime += Time.deltaTime;
         if (gameCanvas != null) gameCanvas.SetGameTime(gameTime);
+
+
     }
 
     private void StartGame()
@@ -113,8 +121,11 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        gameCanvas.SetGameOverScreen(true);
-        gameState = GameState.GameOver;
+        if (gameState != GameState.GameOver)
+        {
+            gameCanvas.SetGameOverScreen(true);
+            gameState = GameState.GameOver;
+        }
     }
 
     public int GetScore()
@@ -125,5 +136,15 @@ public class GameManager : MonoBehaviour
     public GameState GetGameState()
     {
         return gameState;
+    }
+
+    public bool IsDayTime()
+    {
+        return isDayTime;
+    }
+
+    public void GetGameAudio()
+    {
+
     }
 }

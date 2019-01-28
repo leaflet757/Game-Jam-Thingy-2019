@@ -198,6 +198,7 @@ GameObject:
   m_Component:
   - component: {fileID: 150645320}
   - component: {fileID: 150645319}
+  - component: {fileID: 150645321}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -217,6 +218,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameCanvas: {fileID: 1662659161}
+  gameAudio: {fileID: 2099524950}
   streetSceneName: street
 --- !u!4 &150645320
 Transform:
@@ -231,6 +233,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!81 &150645321
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 150645318}
+  m_Enabled: 1
 --- !u!1001 &346258021
 Prefab:
   m_ObjectHideFlags: 0
@@ -240,15 +249,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4043477498735316, guid: 52beacd31c69ac049941dd97a10050e9, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 206.10397
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4043477498735316, guid: 52beacd31c69ac049941dd97a10050e9, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -45.003075
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4043477498735316, guid: 52beacd31c69ac049941dd97a10050e9, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 293.6921
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4043477498735316, guid: 52beacd31c69ac049941dd97a10050e9, type: 2}
       propertyPath: m_LocalRotation.x
@@ -1119,3 +1128,9 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1992725484}
+--- !u!114 &2099524950 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114026660645856568, guid: 52beacd31c69ac049941dd97a10050e9,
+    type: 2}
+  m_PrefabInternal: {fileID: 346258021}
+  m_Script: {fileID: 11500000, guid: 1a240993bcf6d0b4ebd66c0503d879ac, type: 3}
